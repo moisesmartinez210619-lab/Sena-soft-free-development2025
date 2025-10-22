@@ -5,14 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vuelos disponibles</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-100 p-6">
+<body class="bg-gray-100 p-6 relative">
 
+  <!-- 🔧 Ícono de configuración (esquina superior derecha) -->
+  <button id="btnConfig" class="absolute top-4 right-6 text-gray-600 hover:text-blue-600">
+    <i data-lucide="settings" class="w-8 h-8"></i>
+  </button>
+
+  <!-- Encabezados originales -->
   <h2 class="text-3xl font-bold text-center text-blue-700 mb-6">Vuelos disponibles</h2>
-    <h2 class="text-3xl font-bold text-center text-green-700 mb-6">Volando con Aerosoft</h2>
+  <h2 class="text-3xl font-bold text-center text-green-700 mb-6">Volando con Aerosoft</h2>
+
   <div id="listaVuelos" class="grid gap-4"></div>
 
   <script>
+  // Activa los íconos Lucide
+  lucide.createIcons();
+
+  // 🔹 Botón de configuración → lleva al login admin
+  document.getElementById("btnConfig").addEventListener("click", () => {
+    window.location.href = "login_admin.html";
+  });
+
+  // Tu código original sin cambios
   document.addEventListener("DOMContentLoaded", () => {
     fetch("../backend/controllers/vuelosController.php?accion=listar")
       .then(res => res.json())
@@ -31,6 +48,6 @@
       });
   });
   </script>
-  
+
 </body>
 </html>
