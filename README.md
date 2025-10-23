@@ -44,20 +44,19 @@ Estructura de carpetas principal:
 AeroSoft/
 │
 ├── assets/
-│   └── img/               → Imágenes (fondo, logotipos)
+│   └── img/               
 │
 ├── backend/
-│   ├── controllers/       → Controladores PHP
-│   ├── helpers/           → Funciones de apoyo
-│   ├── lib/               → Archivos de conexión o librerías
-│   ├── doc/               → Documentos generados
-│   └── comprobantes/      → PDFs de tiquetes
+│   ├── controllers/      
+│   ├── helpers/         
+│   ├── lib/               
+│   ├── doc/               
+│   └── comprobantes/      
 │
-├── config/                → Parámetros de conexión y entorno
+├── config/               
 │
-├── views/                 → Interfaces HTML del sistema
-│
-└── index.html             → Página principal
+├── views/                
+└── index.html             
 
 🚀 Funcionalidades principales
 
