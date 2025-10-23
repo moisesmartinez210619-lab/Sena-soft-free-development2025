@@ -35,6 +35,15 @@
     </form>
 
     <div id="mensaje" class="mt-4 text-center"></div>
+
+    <!-- Enlaces de navegación -->
+    <div class="flex flex-col items-center gap-3 mt-6">
+      <a href="../views/pagos.php" class="text-blue-600 hover:underline font-medium">Ir a pagos</a>
+      <!-- 🔹 Nuevo botón para volver al home -->
+      <a href="home.php" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold">
+        Volver al inicio
+      </a>
+    </div>
   </div>
 
   <script>
@@ -42,21 +51,27 @@
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const datos = new FormData(form);
-    const res = await fetch("../backend/controllers/ReservasController.php", {
-      method: "POST",
-      body: datos
-    });
-    const data = await res.json();
     const msg = document.getElementById("mensaje");
 
-    if (data.success) {
-      msg.innerHTML = `<p class="text-green-600 font-semibold">Reserva creada con éxito 🎉<br>Código: ${data.codigo}</p>`;
-    } else {
-      msg.innerHTML = `<p class="text-red-600 font-semibold">${data.mensaje}</p>`;
+    msg.innerHTML = '<p class="text-blue-600 font-semibold">Procesando reserva...</p>';
+
+    try {
+      const res = await fetch("../backend/controllers/ReservasController.php", {
+        method: "POST",
+        body: datos
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        msg.innerHTML = `<p class="text-green-600 font-semibold">Reserva creada con éxito 🎉<br>Código: ${data.codigo}</p>`;
+      } else {
+        msg.innerHTML = `<p class="text-red-600 font-semibold">${data.mensaje}</p>`;
+      }
+    } catch (error) {
+      msg.innerHTML = `<p class="text-red-600 font-semibold">Error al conectar con el servidor.</p>`;
     }
   });
   </script>
-  <a href="../views/pagos.php">Pagos</a>
 
 </body>
 </html>
