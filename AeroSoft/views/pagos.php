@@ -30,6 +30,14 @@
     </form>
 
     <div id="mensaje" class="mt-4 text-center"></div>
+
+    <!-- 🔙 Botón para volver al Home -->
+    <div class="text-center mt-6">
+      <a href="../index.html" 
+         class="inline-block bg-gray-200 text-gray-800 px-5 py-2 rounded-lg font-semibold hover:bg-gray-300 transition">
+        ⬅️ Volver al inicio
+      </a>
+    </div>
   </div>
 
   <script>
@@ -67,9 +75,14 @@
         `<p class="text-red-600 font-semibold">Error al conectar con el servidor.</p>`;
     }
   });
+  </script>
+
+</body>
+</html>
 
   
   </script>
 
 </body>
 </html>
+
